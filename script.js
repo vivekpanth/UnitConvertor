@@ -46,6 +46,66 @@ function createlengthinputs() {
   inputconversion.appendChild(inputfield);
   inputconversion.appendChild(convertbutton);
 }
+function createtemperatureinputs() {
+  
+  const units = ["fahrenheit", "celsius", "kelvin"];
+  units.forEach((unit) => {
+    const option1 = document.createElement("option");
+    const option2 = document.createElement("option");
+    option1.textContent = unit;
+    option2.textContent = unit;
+    fromunitselect.appendChild(option1);
+    tounitselect.appendChild(option2);
+  });
+
+  convertbutton.textContent = "Convert";
+  inputconversion.appendChild(fromunitselect);
+  inputconversion.appendChild(tounitselect);
+
+  convertbutton.addEventListener('click', performconversion);
+  inputconversion.appendChild(inputfield);
+  inputconversion.appendChild(convertbutton);
+}
+function createtimeinputs() {
+  
+  const units = ["day", "hour", "minute","second"];
+  units.forEach((unit) => {
+    const option1 = document.createElement("option");
+    const option2 = document.createElement("option");
+    option1.textContent = unit;
+    option2.textContent = unit;
+    fromunitselect.appendChild(option1);
+    tounitselect.appendChild(option2);
+  });
+
+  convertbutton.textContent = "convert";
+  inputconversion.appendChild(fromunitselect);
+  inputconversion.appendChild(tounitselect);
+
+  convertbutton.addEventListener('click', performconversion);
+  inputconversion.appendChild(inputfield);
+  inputconversion.appendChild(convertbutton);
+}
+function createmassinputs() {
+  
+  const units = ["gram", "kilogram", "pounds"];
+  units.forEach((unit) => {
+    const option1 = document.createElement("option");
+    const option2 = document.createElement("option");
+    option1.textContent = unit;
+    option2.textContent = unit;
+    fromunitselect.appendChild(option1);
+    tounitselect.appendChild(option2);
+  });
+
+  convertbutton.textContent = "convert";
+  inputconversion.appendChild(fromunitselect);
+  inputconversion.appendChild(tounitselect);
+
+  convertbutton.addEventListener('click', performconversion);
+  inputconversion.appendChild(inputfield);
+  inputconversion.appendChild(convertbutton);
+}
 function performconversion(){
     console.log(fromunitselect.value)
     const fromunit=fromunitselect.value
@@ -55,24 +115,51 @@ function performconversion(){
         outputconversion.innerHTML="Invalid input"
         return;
     }
-    let convertedValue;
-
-    // Conversion formulas (you can extend this)
+    let convertedvalue;
     if (fromunit === 'meter' && tounit === 'kilometer') {
-        convertedValue = inputvalue / 1000;
+        convertedvalue = inputvalue / 1000;
     } else if (fromunit === 'kilometer' && tounit === 'meter') {
-        convertedValue = inputvalue * 1000;
+        convertedvalue = inputvalue * 1000;
     } else if (fromunit === 'mile' && tounit === 'kilometer') {
-        convertedValue = inputvalue * 1.60934;
+        convertedvalue = inputvalue * 1.60934;
     } else if (fromunit === 'yard' && tounit === 'meter') {
-        convertedValue = inputvalue * 0.9144;
+        convertedvalue = inputvalue * 0.9144;
     } else if (fromunit === 'foot' && tounit === 'meter') {
-        convertedValue = inputvalue * 0.3048;
+        convertedvalue = inputvalue * 0.3048;
     } else if (fromunit === 'inch' && tounit === 'centimeter') {
-        convertedValue = inputvalue * 2.54;
-    } else {
-        convertedValue = inputvalue; 
+        convertedvalue = inputvalue * 2.54;
+    } 
+    else if (fromunit === 'kilogram' && tounit === 'gram') {
+        convertedvalue = inputvalue * 1000;
+    } else if (fromunit === 'gram' && tounit === 'kilogram') {
+        convertedvalue = inputvalue / 1000;
+    } else if (fromunit === 'pound' && tounit === 'kilogram') {
+        convertedvalue = inputvalue * 0.453592;
+    }
+    else if (fromunit === 'celsius' && tounit === 'fahrenheit') {
+        convertedvalue = (inputvalue * 9/5) + 32;
+    } else if (fromunit === 'fahrenheit' && tounit === 'celsius') {
+        convertedvalue = (inputvalue - 32) * 5/9;
+    } else if (fromunit === 'celsius' && tounit === 'kelvin') {
+        convertedvalue = inputvalue + 273.15;
+    }
+    else  if (fromunit === 'hour' && tounit === 'minute') {
+        convertedvalue = inputvalue * 60;
+    } else if (fromunit === 'minute' && tounit === 'hour') {
+        convertedvalue = inputvalue / 60;
+    } else if (fromunit === 'day' && tounit === 'hour') {
+        convertedvalue = inputvalue * 24;
+    }
+    else  if (fromunit === 'hour' && tounit === 'second') {
+        convertedvalue = inputvalue * 3600;
+    } else if (fromunit === 'minute' && tounit === 'second') {
+        convertedvalue = inputvalue * 60; // 1 minute = 60 seconds
+    } else if (fromunit === 'day' && tounit === 'second') {
+        convertedvalue = inputvalue * 86400; // 1 day = 86400 seconds
+    } 
+        else {
+        convertedvalue = inputvalue; 
     }
 
-    outputconversion.textContent = `${inputvalue} ${fromunit} = ${convertedValue.toFixed(2)} ${tounit}`;
+    outputconversion.textContent = `${inputvalue} ${fromunit} = ${convertedvalue.toFixed(2)} ${tounit}`;
 }
