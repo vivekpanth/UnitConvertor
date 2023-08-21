@@ -90,7 +90,7 @@ function createtimeinputs() {
 function createmassinputs() {
   
   const units = ["gram", "kilogram", "pounds"];
-  units.forEach((unit) => {
+  units.forEach((unit) => { 
     const option1 = document.createElement("option");
     const option2 = document.createElement("option");
     option1.textContent = unit;
