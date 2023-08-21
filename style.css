@@ -1,3 +1,4 @@
+
 .container {
     max-width: 400px;
     margin: 50px auto;
@@ -6,12 +7,29 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-body{
-    margin: 6px;
-    padding: 6px;
+h1 {
+    margin-bottom: 20px;
 }
-h1{
-    text-align: center;
+
+select, input, button {
+    margin: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
 }

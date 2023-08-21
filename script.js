@@ -25,6 +25,7 @@ function createconversioninputs() {
 const fromunitselect = document.createElement("select");
   const tounitselect = document.createElement("select");
   const inputfield = document.createElement("input");
+  inputfield.placeholder="Enter Value To Convert"
   const convertbutton = document.createElement("button");
 function createlengthinputs() {
   
@@ -98,7 +99,7 @@ function createmassinputs() {
     tounitselect.appendChild(option2);
   });
 
-  convertbutton.textContent = "convert";
+  convertbutton.textContent = "CONVERT";
   inputconversion.appendChild(fromunitselect);
   inputconversion.appendChild(tounitselect);
 
@@ -161,5 +162,5 @@ function performconversion(){
         convertedvalue = inputvalue; 
     }
 
-    outputconversion.textContent = `${inputvalue} ${fromunit} = ${convertedvalue.toFixed(2)} ${tounit}`;
+    outputconversion.textContent = `${inputvalue} ${fromunit} = ${convertedvalue.toFixed(4)} ${tounit}`;
 }
